@@ -22,8 +22,20 @@ DELETE FROM | deletes from table |`DELETE FROM tablename WHERE id = 5;`
 `SELECT * FROM table BETWEEN 1 AND 5;` / OR column = 3; / AND column = 3; / BETWEEN OR NOT BETWEEN
 `SELECT * FROM tablename1 JOIN tablename2 ON table.colname = table2.colname;` JOIN = INNER JOIN = combines tables with a match left and right, LEFT JOIN = returns everything on left, RIGHT JOIN = returns everything on right side
 `SELECT AVG(yearcol) FROM tablename;` - prints average / AVG / SUM / COUNT
-`CREATE TABLE tablename (id INT NOTNULL AUTO_INCREMENT, PRIMARY KEY (id), colname1 VARCHAR(255) NOTNULL, colname2 INT, FOREIGN KEY (id) REFERENCES othertablename(thatIDname) );`
+```SQL
+CREATE TABLE tablename 
+(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), colname1 VARCHAR(255) NOT NULL, colname2 INT, 
+FOREIGN KEY (id) REFERENCES othertablename(thatIDname) );
+```
+
 - id = primary key, id name
 - INT = integer
-- NOTNULL = req'd field
+- NOT NULL = req'd field
 - AUTO_INCREMENT = 1,2,3...
+
+# Resources
+
+- <http://sqlfiddle.com/> - to practice
+- <https://learnxinyminutes.com/docs/sql/>
+- <https://learnsql.com/blog/sql-basics-cheat-sheet/>
+- <https://www.w3schools.com/sql/default.asp>
