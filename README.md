@@ -1,5 +1,19 @@
 # SQL notes
 
+```SQL
+SELECT DISTINCT col
+COUNT(DISTINCT col)
+FROM table
+WHERE logical conditions
+
+GROUP BY col
+HAVING logical conditions
+
+ORDER BY col DESC [1-100] / ASC [100 - 1] - default
+LIMIT # 
+
+```
+
 Command | What it does | Examples
 ------ | ------ | ------
 CREATE DATABASE | creates a new database | CREATE DATABASE dbname;
@@ -16,17 +30,22 @@ DELETE FROM | deletes from table |`DELETE FROM tablename WHERE id = 5;`
 
 ## Examples
 
-`SELECT * FROM tablename ORDER BY name;` - asc IS default OR ORDER BY DESC
-`SELECT * FROM table WHERE name LIKE '%ER%';` - any row from table with 'er'
-`SELECT * FROM table WHERE colname IS NULL;`
-`SELECT * FROM table BETWEEN 1 AND 5;` / OR column = 3; / AND column = 3; / BETWEEN OR NOT BETWEEN
-`SELECT * FROM tablename1 JOIN tablename2 ON table.colname = table2.colname;` JOIN = INNER JOIN = combines tables with a match left and right, LEFT JOIN = returns everything on left, RIGHT JOIN = returns everything on right side
-`SELECT AVG(yearcol) FROM tablename;` - prints average / AVG / SUM / COUNT
+- `SELECT * FROM tablename ORDER BY name;` - asc IS default OR ORDER BY DESC
+- `SELECT * FROM table WHERE name LIKE '%ER%';` - any row from table with 'er'
+- `SELECT * FROM table WHERE colname IS NULL;`
+- `SELECT * FROM table BETWEEN 1 AND 5;` / OR column = 3; / AND column = 3; / BETWEEN OR NOT BETWEEN
+- `SELECT * FROM tablename1 JOIN tablename2 ON table.colname = table2.colname;`
+  - JOIN = INNER JOIN = combines tables with a match left and right
+  - LEFT JOIN = returns everything on left
+  - RIGHT JOIN = returns everything on right side
+- `SELECT AVG(yearcol) FROM tablename;` - prints average / AVG / SUM / COUNT
 ```SQL
 CREATE TABLE tablename 
 (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), colname1 VARCHAR(255) NOT NULL, colname2 INT, 
 FOREIGN KEY (id) REFERENCES othertablename(thatIDname) );
 ```
+
+
 
 - id = primary key, id name
 - INT = integer
