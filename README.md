@@ -171,7 +171,87 @@ FOREIGN KEY (id) REFERENCES othertablename(thatIDname) );
    - **Example:** `SELECT REPLACE('Hello, world!', 'Hello', 'Hi');`
    - **Output:** The output will be `'Hi, world!'`, as it replaces 'Hello' with 'Hi' in the original string.
 
+## Functions to know
+
+1. **SUM:**
+   - **Usage:** Calculates the sum of a numeric column.
+   - **Example:** `SELECT SUM(sales_amount) FROM sales;`
+
+2. **AVG:**
+   - **Usage:** Calculates the average value of a numeric column.
+   - **Example:** `SELECT AVG(salary) FROM employees;`
+
+3. **COUNT:**
+   - **Usage:** Counts the number of rows in a result set or the number of occurrences of a specific value.
+   - **Example:** `SELECT COUNT(*) FROM orders;`
+
+4. **MIN:**
+   - **Usage:** Returns the minimum value in a numeric or date column.
+   - **Example:** `SELECT MIN(order_date) FROM orders;`
+
+5. **MAX:**
+   - **Usage:** Returns the maximum value in a numeric or date column.
+   - **Example:** `SELECT MAX(salary) FROM employees;`
+
+6. **CONCAT or ||:**
+   - **Usage:** Concatenates two or more strings together.
+   - **Example:** `SELECT first_name || ' ' || last_name AS full_name FROM employees;`
+
+7. **LEFT and RIGHT:**
+   - **Usage:** Extracts a specified number of characters from the left or right side of a string.
+   - **Example:** 
+     ```
+     SELECT LEFT(product_name, 10) AS short_name,
+            RIGHT(product_code, 4) AS code_suffix
+     FROM products;
+     ```
+
+8. **UPPER and LOWER:**
+   - **Usage:** Converts a string to uppercase or lowercase.
+   - **Example:** `SELECT UPPER(product_name) AS uppercase_name FROM products;`
+
+9. **TRIM:**
+   - **Usage:** Removes leading and trailing spaces from a string.
+   - **Example:** `SELECT TRIM(' ' FROM product_name) AS trimmed_name FROM products;`
+
+10. **DATE Functions (DATE_FORMAT, DATEADD, DATEDIFF):**
+    - **Usage:** Manipulates date and time values.
+    - **Example:** 
+      ```
+      SELECT order_date, DATEADD(day, 7, order_date) AS future_date,
+             DATEDIFF(day, order_date, '2023-12-31') AS days_until_year_end
+      FROM orders;
+      ```
+
+11. **COALESCE:**
+    - **Usage:** Returns the first non-null value in a list of expressions.
+    - **Example:** `SELECT COALESCE(column1, column2, 'Not available') FROM table_name;`
+
+12. **NULLIF:**
+    - **Usage:** Compares two expressions and returns null if they are equal, otherwise returns the first expression.
+    - **Example:** `SELECT NULLIF(column1, 0) FROM table_name;`
+
+13. **ROUND and FLOOR and CEIL:**
+    - **Usage:** Rounds a numeric value to the nearest whole number (ROUND), rounds down to the nearest whole number (FLOOR), rounds up to the nearest whole number (CEIL).
+    - **Example:** 
+      ```
+      SELECT ROUND(salary, 2) AS rounded_salary,
+             FLOOR(price) AS rounded_down_price,
+             CEIL(discount) AS rounded_up_discount
+      FROM employees;
+      ```
+
+14. **CAST:**
+    - **Usage:** Converts a value from one data type to another.
+    - **Example:** `SELECT CAST(column_name AS INTEGER) FROM table_name;`
+
+15. **DATE_PART:**
+    - **Usage:** Extracts a specific part (year, month, day, etc.) from a date or timestamp.
+    - **Example:** `SELECT DATE_PART('year', order_date) AS order_year FROM orders;`
+
 ---
+
+## Advanced
 
 1. **WINDOW FUNCTIONS (ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG):**
    - **Usage:** Performs calculations across a set of table rows that are related to the current row.
